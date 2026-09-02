@@ -1,20 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AND WOT | Rigging</title>
+  <title>AND WOT | About</title>
 
   <style>
+
     /* ========================================
        COLOUR PALETTE
        ======================================== */
+
     :root {
       --black: #000000;
       --white: #ffffff;
       --grey: #808080;
-      --light-grey: #cccccc;
+      --dark-grey: #151515;
       --green-accent: #2e8b57;
       --green-hover: #3cb371;
     }
@@ -23,24 +28,38 @@
     /* ========================================
        RESET
        ======================================== */
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+
+      font-family:
+        'Segoe UI',
+        -apple-system,
+        BlinkMacSystemFont,
+        Roboto,
+        sans-serif;
     }
 
 
     /* ========================================
        BODY
        ======================================== */
+
     body {
+
       background:
+
         linear-gradient(
-          rgba(0, 0, 0, 0.97),
-          rgba(0, 0, 0, 0.98)
+          rgba(0, 0, 0, 0.96),
+          rgba(0, 0, 0, 0.97)
         ),
-        url('images/homeimg.png') no-repeat center center fixed;
+
+        url('images/homeimg.png')
+        no-repeat
+        center center
+        fixed;
 
       background-size: cover;
 
@@ -56,7 +75,9 @@
     /* ========================================
        HEADER
        ======================================== */
+
     header {
+
       width: 100%;
 
       padding: 1.5rem 2rem;
@@ -65,6 +86,7 @@
       justify-content: flex-end;
 
       position: absolute;
+
       top: 0;
       right: 0;
 
@@ -75,7 +97,9 @@
     /* ========================================
        NAVIGATION
        ======================================== */
+
     .nav-links {
+
       display: flex;
 
       list-style: none;
@@ -89,10 +113,18 @@
       border-radius: 4px;
 
       border: 1px solid var(--green-accent);
+
+      box-shadow:
+        0 0 8px rgba(46, 139, 87, 0.8),
+        0 0 20px rgba(46, 139, 87, 0.5),
+        0 0 35px rgba(0, 255, 102, 0.25);
+
+      transition: all 0.3s ease;
     }
 
 
     .nav-links a {
+
       color: var(--white);
 
       text-decoration: none;
@@ -105,43 +137,67 @@
 
       letter-spacing: 1px;
 
-      transition: color 0.3s;
+      transition:
+        color 0.3s,
+        text-shadow 0.3s;
     }
 
 
     .nav-links a:hover,
     .nav-links a.active {
+
       color: var(--green-hover);
+
+      text-shadow:
+        0 0 5px var(--green-hover),
+        0 0 10px var(--green-hover),
+        0 0 20px rgba(0, 255, 102, 0.8);
+    }
+
+
+    .nav-links:hover {
+
+      border-color: var(--green-hover);
+
+      box-shadow:
+        0 0 10px rgba(0, 255, 102, 0.8),
+        0 0 25px rgba(0, 255, 102, 0.5),
+        0 0 50px rgba(0, 255, 102, 0.25);
     }
 
 
     /* ========================================
-       MAIN
+       MAIN CONTENT
        ======================================== */
+
     main {
+
       width: 100%;
 
       max-width: 1200px;
 
       margin: 0 auto;
 
-      padding: 140px 30px 80px;
+      padding: 130px 30px 80px;
     }
 
 
     /* ========================================
-       HERO
+       ABOUT SECTION
        ======================================== */
-    .hero {
+
+    .about-section {
+
+      max-width: 900px;
+
+      margin: 0 auto 90px;
+
       text-align: center;
-
-      max-width: 950px;
-
-      margin: 0 auto 60px;
     }
 
 
     .section-label {
+
       color: var(--green-hover);
 
       font-size: 0.7rem;
@@ -156,351 +212,296 @@
     }
 
 
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+    .about-section h2 {
 
-      font-weight: 900;
-
-      text-transform: uppercase;
-
-      letter-spacing: 5px;
-
-      line-height: 1.05;
-
-      margin-bottom: 25px;
-    }
-
-
-    .hero h1 span {
-      color: var(--green-hover);
-    }
-
-
-    .hero p {
-      max-width: 750px;
-
-      margin: 0 auto;
-
-      color: var(--light-grey);
-
-      font-size: 1.1rem;
-
-      line-height: 1.8;
-    }
-
-
-    /* ========================================
-       MLX IMAGE
-       ======================================== */
-    .mlx-image {
-      width: 100%;
-
-      max-width: 1100px;
-
-      height: 500px;
-
-      margin: 0 auto 70px;
-
-      position: relative;
-
-      overflow: hidden;
-
-      border: 1px solid #333;
-
-      background: #000;
-    }
-
-
-    .mlx-image img {
-      width: 100%;
-
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
-
-      opacity: 0.8;
-
-      transition: transform 0.6s ease, opacity 0.6s ease;
-    }
-
-
-    .mlx-image:hover img {
-      transform: scale(1.03);
-
-      opacity: 1;
-    }
-
-
-    .mlx-overlay {
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.05),
-          rgba(0, 0, 0, 0.75)
-        );
-
-      display: flex;
-
-      align-items: flex-end;
-
-      padding: 35px;
-    }
-
-
-    .mlx-overlay h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
-
-      font-weight: 900;
-
-      text-transform: uppercase;
-
-      letter-spacing: 4px;
-
-      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
-    }
-
-
-    .mlx-overlay h2 span {
-      color: var(--green-hover);
-    }
-
-
-    /* ========================================
-       SYSTEM INTRO
-       ======================================== */
-    .system {
-      background: rgba(0, 0, 0, 0.94);
-
-      border: 1px solid #333;
-
-      padding: 55px 45px;
-
-      margin-bottom: 60px;
-    }
-
-
-    .system h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3rem);
 
       text-transform: uppercase;
 
       letter-spacing: 2px;
 
+      margin-bottom: 25px;
+    }
+
+
+    .about-section p {
+
+      color: #cccccc;
+
+      font-size: 1.05rem;
+
+      line-height: 1.9;
+
       margin-bottom: 20px;
     }
 
 
-    .system h2 span {
-      color: var(--green-hover);
-    }
-
-
-    .system p {
-      color: var(--light-grey);
-
-      font-size: 1rem;
-
-      line-height: 1.9;
-
-      max-width: 900px;
-    }
-
-
-    .system p + p {
-      margin-top: 20px;
-    }
-
-
     /* ========================================
-       FEATURES
+       EXPERIENCE STATEMENT
        ======================================== */
-    .features {
+
+    .experience {
+
       display: grid;
 
       grid-template-columns: repeat(3, 1fr);
 
       gap: 20px;
 
-      margin-bottom: 80px;
+      margin: 60px 0 100px;
     }
 
 
-    .feature {
+    .experience-box {
+
       background: rgba(0, 0, 0, 0.94);
 
       border: 1px solid #333;
 
-      padding: 35px 25px;
+      padding: 35px 20px;
+
+      text-align: center;
 
       transition: all 0.3s ease;
     }
 
 
-    .feature:hover {
+    .experience-box:hover {
+
       border-color: var(--green-accent);
 
       transform: translateY(-5px);
     }
 
 
-    .feature-number {
+    .experience-box .number {
+
+      display: block;
+
+      font-size: 2.8rem;
+
+      font-weight: 900;
+
       color: var(--green-hover);
+
+      margin-bottom: 8px;
+    }
+
+
+    .experience-box .label {
+
+      color: var(--grey);
 
       font-size: 0.7rem;
 
-      font-weight: 700;
-
       letter-spacing: 2px;
 
-      margin-bottom: 18px;
-
-      display: block;
-    }
-
-
-    .feature h3 {
       text-transform: uppercase;
-
-      font-size: 1.1rem;
-
-      letter-spacing: 1px;
-
-      margin-bottom: 12px;
-    }
-
-
-    .feature p {
-      color: var(--grey);
-
-      font-size: 0.85rem;
-
-      line-height: 1.7;
     }
 
 
     /* ========================================
-       SOUND PHILOSOPHY
+       RESIDENTS
        ======================================== */
-    .philosophy {
+
+    .residents-section {
+
+      margin-bottom: 60px;
+    }
+
+
+    .residents-header {
+
       text-align: center;
 
-      border-top: 1px solid #333;
-
-      border-bottom: 1px solid #333;
-
-      padding: 70px 30px;
-
-      margin-bottom: 70px;
+      margin-bottom: 45px;
     }
 
 
-    .philosophy h2 {
-      font-size: clamp(1.8rem, 5vw, 3.5rem);
+    .residents-header h2 {
 
-      text-transform: uppercase;
-
-      letter-spacing: 3px;
-
-      line-height: 1.35;
-
-      margin-bottom: 25px;
-    }
-
-
-    .philosophy h2 span {
-      color: var(--green-hover);
-    }
-
-
-    .philosophy p {
-      max-width: 800px;
-
-      margin: 0 auto;
-
-      color: var(--light-grey);
-
-      font-size: 1rem;
-
-      line-height: 1.8;
-    }
-
-
-    /* ========================================
-       HIRE
-       ======================================== */
-    .hire {
-      text-align: center;
-
-      background: rgba(0, 0, 0, 0.95);
-
-      border: 1px solid var(--green-accent);
-
-      padding: 60px 30px;
-    }
-
-
-    .hire h2 {
       font-size: clamp(2rem, 5vw, 3.5rem);
 
       text-transform: uppercase;
 
       letter-spacing: 3px;
-
-      margin-bottom: 15px;
     }
 
 
-    .hire p {
+    .residents-header p {
+
       color: var(--grey);
 
-      font-size: 0.9rem;
+      margin-top: 12px;
 
-      line-height: 1.7;
+      font-size: 0.75rem;
 
-      margin-bottom: 30px;
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
     }
 
 
-    .hire-button {
-      display: inline-block;
+    /* ========================================
+       RESIDENT GRID
+       ======================================== */
 
-      padding: 14px 30px;
+    .resident-grid {
 
-      border: 1px solid var(--green-accent);
+      display: grid;
 
-      color: var(--white);
+      grid-template-columns: repeat(3, 1fr);
 
-      text-decoration: none;
+      gap: 20px;
+    }
 
-      text-transform: uppercase;
+
+    .resident {
+
+      background: rgba(0, 0, 0, 0.96);
+
+      border: 1px solid #333;
+
+      min-height: 180px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+
+      padding: 25px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      transition: all 0.3s ease;
+    }
+
+
+    .resident::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      height: 3px;
+
+      background: var(--green-accent);
+
+      transform: scaleX(0);
+
+      transform-origin: left;
+
+      transition: transform 0.3s ease;
+    }
+
+
+    .resident:hover {
+
+      border-color: var(--green-accent);
+
+      transform: translateY(-5px);
+    }
+
+
+    .resident:hover::before {
+
+      transform: scaleX(1);
+    }
+
+
+    .resident-number {
+
+      position: absolute;
+
+      top: 18px;
+      right: 20px;
+
+      color: #333;
 
       font-size: 0.75rem;
 
       font-weight: 700;
 
       letter-spacing: 2px;
-
-      transition: all 0.3s ease;
     }
 
 
-    .hire-button:hover {
-      background: var(--green-accent);
+    .resident h3 {
 
-      color: var(--white);
+      font-size: 1.35rem;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    .resident .resident-role {
+
+      margin-top: 8px;
+
+      color: var(--green-hover);
+
+      font-size: 0.65rem;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       BOTTOM STATEMENT
+       ======================================== */
+
+    .statement {
+
+      border-top: 1px solid #333;
+
+      border-bottom: 1px solid #333;
+
+      padding: 55px 20px;
+
+      margin-top: 90px;
+
+      text-align: center;
+    }
+
+
+    .statement h2 {
+
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+
+      line-height: 1.4;
+    }
+
+
+    .statement h2 span {
+
+      color: var(--green-hover);
     }
 
 
     /* ========================================
        FOOTER
        ======================================== */
+
     footer {
+
       text-align: center;
 
       padding: 40px 20px;
@@ -518,25 +519,26 @@
     /* ========================================
        MOBILE
        ======================================== */
+
     @media (max-width: 800px) {
 
       main {
-        padding: 120px 20px 60px;
+
+        padding: 120px 20px 50px;
       }
 
 
-      .features {
+      .experience {
+
         grid-template-columns: 1fr;
+
+        margin: 40px 0 70px;
       }
 
 
-      .system {
-        padding: 40px 25px;
-      }
+      .resident-grid {
 
-
-      .mlx-image {
-        height: 400px;
+        grid-template-columns: 1fr 1fr;
       }
 
     }
@@ -545,6 +547,7 @@
     @media (max-width: 600px) {
 
       header {
+
         justify-content: center;
 
         padding: 1rem;
@@ -552,56 +555,56 @@
 
 
       .nav-links {
+
         gap: 0.8rem;
 
         padding: 0.6rem 1rem;
+
+        box-shadow:
+          0 0 6px rgba(46, 139, 87, 0.8),
+          0 0 15px rgba(46, 139, 87, 0.5),
+          0 0 25px rgba(0, 255, 102, 0.2);
       }
 
 
       .nav-links a {
+
         font-size: 0.7rem;
       }
 
 
       main {
+
         padding: 115px 15px 40px;
       }
 
 
-      .hero {
-        margin-bottom: 45px;
-      }
+      .about-section p {
 
-
-      .hero p {
         font-size: 0.95rem;
+
+        line-height: 1.7;
       }
 
 
-      .mlx-image {
-        height: 300px;
+      .resident-grid {
 
-        margin-bottom: 50px;
+        grid-template-columns: 1fr;
       }
 
 
-      .mlx-overlay {
-        padding: 20px;
-      }
+      .resident {
 
-
-      .philosophy {
-        padding: 50px 20px;
+        min-height: 150px;
       }
 
     }
 
   </style>
+
 </head>
 
-
 <body>
-
 
   <!-- ========================================
        NAVIGATION
@@ -620,13 +623,13 @@
         </li>
 
         <li>
-          <a href="about.html">
+          <a href="about.html" class="active">
             About
           </a>
         </li>
 
         <li>
-          <a href="rigging.html" class="active">
+          <a href="rigging.html">
             Rigging
           </a>
         </li>
@@ -644,7 +647,6 @@
   </header>
 
 
-
   <!-- ========================================
        MAIN CONTENT
        ======================================== -->
@@ -652,190 +654,265 @@
   <main>
 
 
-    <!-- HERO -->
+    <!-- ABOUT -->
 
-    <section class="hero">
+    <section class="about-section">
 
       <div class="section-label">
-        AND WOT SOUND
+        Who We Are
       </div>
 
-      <h1>
-        The <span>Rig</span>
-      </h1>
+      <h2>
+        Built From The Scene.
+      </h2>
 
       <p>
-        Our Martin Audio MLX system is available to lease
-        for events, venues and promoters who demand serious sound.
+        AND WOT is a bassline collective built on over 20 years
+        of experience within the industry.
+      </p>
+
+      <p>
+        Our residents have played internationally, shared stages
+        across the world and helped push the bassline scene to
+        its limits.
+      </p>
+
+      <p>
+        We represent the sound, culture and energy that sits at
+        the heart of bassline — bringing together experienced DJs,
+        selectors and artists under one collective.
       </p>
 
     </section>
 
 
+    <!-- EXPERIENCE -->
 
-    <!-- MLX IMAGE -->
+    <section class="experience">
 
-    <div class="mlx-image">
+      <div class="experience-box">
 
-      <img
-        src="images/mlx.jpg"
-        alt="AND WOT Martin Audio MLX sound system"
-      >
+        <span class="number">
+          20+
+        </span>
 
-      <div class="mlx-overlay">
+        <span class="label">
+          Years In The Industry
+        </span>
+
+      </div>
+
+
+      <div class="experience-box">
+
+        <span class="number">
+          7
+        </span>
+
+        <span class="label">
+          Residents
+        </span>
+
+      </div>
+
+
+      <div class="experience-box">
+
+        <span class="number">
+          Global
+        </span>
+
+        <span class="label">
+          International Experience
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESIDENTS -->
+
+    <section class="residents-section">
+
+      <div class="residents-header">
+
+        <div class="section-label">
+          The Collective
+        </div>
 
         <h2>
-          Martin Audio <span>MLX</span>
+          Our Residents
         </h2>
 
-      </div>
-
-    </div>
-
-
-
-    <!-- SYSTEM -->
-
-    <section class="system">
-
-      <div class="section-label">
-        High Fidelity. High Impact.
-      </div>
-
-      <h2>
-        Sound Is <span>Everything.</span>
-      </h2>
-
-      <p>
-        At AND WOT, we take high fidelity sound extremely seriously.
-        A sound system isn't simply there to make noise — it is a
-        fundamental part of the experience.
-      </p>
-
-      <p>
-        The way a system translates to the punters can make or break
-        their night. That's why we put the quality of the sound first,
-        from the system itself through to the way it is deployed and
-        tuned for the space.
-      </p>
-
-    </section>
-
-
-
-    <!-- FEATURES -->
-
-    <section class="features">
-
-
-      <div class="feature">
-
-        <span class="feature-number">
-          01
-        </span>
-
-        <h3>
-          High Fidelity
-        </h3>
-
         <p>
-          Detailed and controlled reproduction designed to let the
-          music translate properly to the dancefloor.
+          Bassline. Experience. Pressure.
         </p>
 
       </div>
 
 
-      <div class="feature">
+      <div class="resident-grid">
 
-        <span class="feature-number">
-          02
-        </span>
 
-        <h3>
-          Serious Impact
-        </h3>
+        <!-- RESIDENT 01 -->
 
-        <p>
-          A system suited to bass-driven music where the low end,
-          dynamics and physical impact matter.
-        </p>
+        <div class="resident">
+
+          <span class="resident-number">
+            01
+          </span>
+
+          <h3>
+            FRASER G
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <!-- RESIDENT 02 -->
+
+        <div class="resident">
+
+          <span class="resident-number">
+            02
+          </span>
+
+          <h3>
+            CHARLIE INSIDE
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <!-- RESIDENT 03 -->
+
+        <div class="resident">
+
+          <span class="resident-number">
+            03
+          </span>
+
+          <h3>
+            JONNY WARD
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <!-- RESIDENT 04 -->
+
+        <div class="resident">
+
+          <span class="resident-number">
+            04
+          </span>
+
+          <h3>
+            EYEAM RAGGO
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <!-- RESIDENT 05 -->
+
+        <div class="resident">
+
+          <span class="resident-number">
+            05
+          </span>
+
+          <h3>
+            DJ KATYKATE
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <!-- RESIDENT 06 -->
+
+        <div class="resident">
+
+          <span class="resident-number">
+            06
+          </span>
+
+          <h3>
+            LLOYD ROPER
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <!-- RESIDENT 07 -->
+
+        <div class="resident">
+
+          <span class="resident-number">
+            07
+          </span>
+
+          <h3>
+            MIKEY DUBZ
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
 
       </div>
-
-
-      <div class="feature">
-
-        <span class="feature-number">
-          03
-        </span>
-
-        <h3>
-          Available To Lease
-        </h3>
-
-        <p>
-          The AND WOT system is available for promoters, venues,
-          events and productions.
-        </p>
-
-      </div>
-
 
     </section>
 
 
+    <!-- STATEMENT -->
 
-    <!-- PHILOSOPHY -->
-
-    <section class="philosophy">
-
-      <div class="section-label">
-        Our Philosophy
-      </div>
+    <section class="statement">
 
       <h2>
-        The Sound Makes The
-        <span>Night.</span>
+
+        Pushing The Sound.
+
+        <br>
+
+        <span>
+          Pushing The Scene.
+        </span>
+
       </h2>
-
-      <p>
-        We believe the sound system is one of the most important parts
-        of an event. The punter might never see the processing, system
-        design or tuning — but they will feel and hear the result.
-        When the system translates properly, the music comes alive.
-      </p>
-
-    </section>
-
-
-
-    <!-- HIRE -->
-
-    <section class="hire">
-
-      <div class="section-label">
-        Available For Lease
-      </div>
-
-      <h2>
-        Need The Rig?
-      </h2>
-
-      <p>
-        Get in touch with AND WOT to discuss your event,
-        requirements and system availability.
-      </p>
-
-      <a href="contact.html" class="hire-button">
-        Enquire Now
-      </a>
 
     </section>
 
 
   </main>
-
 
 
   <!-- ========================================
@@ -850,4 +927,5 @@
 
 
 </body>
+
 </html>
