@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AND WOT | About</title>
+  <title>AND WOT | Rigging</title>
 
   <style>
 
@@ -118,10 +118,12 @@
         0 0 8px rgba(46, 139, 87, 0.8),
         0 0 20px rgba(46, 139, 87, 0.5),
         0 0 35px rgba(0, 255, 102, 0.25);
-
-      transition: all 0.3s ease;
     }
 
+
+    /* ========================================
+       NAVIGATION TEXT
+       ======================================== */
 
     .nav-links a {
 
@@ -138,31 +140,25 @@
       letter-spacing: 1px;
 
       transition:
-        color 0.3s,
-        text-shadow 0.3s;
+        color 0.2s ease,
+        text-shadow 0.2s ease;
     }
 
 
-    .nav-links a:hover,
-    .nav-links a.active {
+    /* ========================================
+       NEON TEXT HOVER
+       ======================================== */
 
-      color: var(--green-hover);
+    .nav-links a:hover {
+
+      color: #00ff66;
 
       text-shadow:
-        0 0 5px var(--green-hover),
-        0 0 10px var(--green-hover),
-        0 0 20px rgba(0, 255, 102, 0.8);
-    }
-
-
-    .nav-links:hover {
-
-      border-color: var(--green-hover);
-
-      box-shadow:
-        0 0 10px rgba(0, 255, 102, 0.8),
-        0 0 25px rgba(0, 255, 102, 0.5),
-        0 0 50px rgba(0, 255, 102, 0.25);
+        0 0 5px #00ff66,
+        0 0 10px #00ff66,
+        0 0 20px #00ff66,
+        0 0 35px #00ff66,
+        0 0 50px rgba(0, 255, 102, 0.8);
     }
 
 
@@ -604,7 +600,9 @@
 
 </head>
 
+
 <body>
+
 
   <!-- ========================================
        NAVIGATION
@@ -623,13 +621,13 @@
         </li>
 
         <li>
-          <a href="about.html" class="active">
+          <a href="about.html">
             About
           </a>
         </li>
 
         <li>
-          <a href="rigging.html">
+          <a href="rigging.html" class="active">
             Rigging
           </a>
         </li>
@@ -659,45 +657,46 @@
     <section class="about-section">
 
       <div class="section-label">
-        Who We Are
+        Professional Sound
       </div>
 
       <h2>
-        Built From The Scene.
+        Martin Audio MLX
       </h2>
 
       <p>
-        AND WOT is a bassline collective built on over 20 years
-        of experience within the industry.
+        Our Martin Audio MLX line array system is available to lease
+        for events, venues and productions requiring high-fidelity
+        sound and serious low-frequency performance.
       </p>
 
       <p>
-        Our residents have played internationally, shared stages
-        across the world and helped push the bassline scene to
-        its limits.
+        We take sound extremely seriously. The way a system translates
+        to the punters can make or break their night — every detail,
+        from clarity and balance to impact and headroom, matters.
       </p>
 
       <p>
-        We represent the sound, culture and energy that sits at
-        the heart of bassline — bringing together experienced DJs,
-        selectors and artists under one collective.
+        Our aim is simple: deliver powerful, clean and consistent
+        sound that allows the music to be experienced exactly as
+        it should be.
       </p>
 
     </section>
 
 
-    <!-- EXPERIENCE -->
+    <!-- SYSTEM -->
 
     <section class="experience">
 
       <div class="experience-box">
 
         <span class="number">
-          20+
+          MLX
         </span>
 
         <span class="label">
-          Years In The Industry
+          Martin Audio System
         </span>
 
       </div>
@@ -706,11 +705,11 @@
       <div class="experience-box">
 
         <span class="number">
-          7
+          HI-FI
         </span>
 
         <span class="label">
-          Residents
+          High Fidelity Sound
         </span>
 
       </div>
@@ -719,11 +718,11 @@
       <div class="experience-box">
 
         <span class="number">
-          Global
+          LEASE
         </span>
 
         <span class="label">
-          International Experience
+          Available For Events
         </span>
 
       </div>
@@ -731,162 +730,47 @@
     </section>
 
 
-    <!-- RESIDENTS -->
+    <!-- SYSTEM IMAGE -->
 
     <section class="residents-section">
 
       <div class="residents-header">
 
         <div class="section-label">
-          The Collective
+          The System
         </div>
 
         <h2>
-          Our Residents
+          Built For Pressure
         </h2>
 
         <p>
-          Bassline. Experience. Pressure.
+          Power. Clarity. Control.
         </p>
 
       </div>
 
 
-      <div class="resident-grid">
+      <div
+        style="
+          width: 100%;
+          background: rgba(0, 0, 0, 0.96);
+          border: 1px solid #333;
+          padding: 15px;
+        "
+      >
 
-
-        <!-- RESIDENT 01 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            01
-          </span>
-
-          <h3>
-            FRASER G
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
-
-        <!-- RESIDENT 02 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            02
-          </span>
-
-          <h3>
-            CHARLIE INSIDE
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
-
-        <!-- RESIDENT 03 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            03
-          </span>
-
-          <h3>
-            JONNY WARD
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
-
-        <!-- RESIDENT 04 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            04
-          </span>
-
-          <h3>
-            EYEAM RAGGO
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
-
-        <!-- RESIDENT 05 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            05
-          </span>
-
-          <h3>
-            DJ KATYKATE
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
-
-        <!-- RESIDENT 06 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            06
-          </span>
-
-          <h3>
-            LLOYD ROPER
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
-
-        <!-- RESIDENT 07 -->
-
-        <div class="resident">
-
-          <span class="resident-number">
-            07
-          </span>
-
-          <h3>
-            MIKEY DUBZ
-          </h3>
-
-          <span class="resident-role">
-            Resident DJ
-          </span>
-
-        </div>
-
+        <img
+          src="images/mlx.jpeg"
+          alt="Martin Audio MLX sound system"
+          style="
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 650px;
+            object-fit: contain;
+          "
+        >
 
       </div>
 
@@ -899,12 +783,12 @@
 
       <h2>
 
-        Pushing The Sound.
+        High Fidelity.
 
         <br>
 
         <span>
-          Pushing The Scene.
+          Serious Pressure.
         </span>
 
       </h2>
@@ -921,7 +805,7 @@
 
   <footer>
 
-    AND WOT — Bassline Collective
+    AND WOT — Professional Sound &amp; Rigging
 
   </footer>
 
