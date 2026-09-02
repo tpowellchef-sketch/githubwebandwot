@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -29,33 +30,55 @@
     }
 
     /* ========================================
-       BODY & HEAVY RAVE GLITCH CONTAINER
+       BODY
        ======================================== */
+    html,
     body {
-      min-height: 100vh;
-      width: 100vw;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       background-color: var(--black);
     }
 
-    /* Screen CRT Scanline Overlay */
-    body::after {
-      content: " ";
-      display: block;
-      position: fixed;
-      top: 0; left: 0; bottom: 0; right: 0;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), 
-                  linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-      z-index: 99;
-      background-size: 100% 3px, 6px 100%;
-      pointer-events: none;
+    body {
+      min-height: 100vh;
     }
 
-    /* Glitch Container Base Layer */
-    .glitch-wrapper {
+    /* ========================================
+       CRT SCANLINE OVERLAY
+       ======================================== */
+    body::after {
+      content: "";
+      display: block;
       position: fixed;
       top: 0;
       left: 0;
+      bottom: 0;
+      right: 0;
+
+      background:
+        linear-gradient(
+          rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.4) 50%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 0.03),
+          rgba(0, 255, 0, 0.01),
+          rgba(0, 0, 255, 0.03)
+        );
+
+      background-size: 100% 3px, 6px 100%;
+      z-index: 99;
+      pointer-events: none;
+    }
+
+    /* ========================================
+       GLITCH CONTAINER
+       ======================================== */
+    .glitch-wrapper {
+      position: fixed;
+      inset: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
@@ -63,97 +86,264 @@
       background: #000;
     }
 
+    /* ========================================
+       MAIN IMAGE
+       ======================================== */
     .glitch-img {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
-      background: url('images/homeimg.png') no-repeat center center;
+
+      background-image: url('images/homeimg.png');
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: cover;
     }
 
-    /* Main visual distortion layer */
+    /* ========================================
+       MAIN GLITCH
+       SLOWER + MORE OCCASIONAL
+       ======================================== */
     .glitch-main {
-      animation: heavy-glitch-jump 3s infinite steps(1);
-    }
-
-    /* Electric Pink / Red Split Layer */
-    .glitch-layer-1 {
-      opacity: 0.8;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 0 10px #ff0055) hue-rotate(290deg) saturate(300%);
-      animation: glitch-slice-1 1.2s infinite linear alternate-reverse, strobe-flash 4s infinite;
-    }
-
-    /* Neon Cyan / Blue Split Layer */
-    .glitch-layer-2 {
-      opacity: 0.8;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 0 10px #00f0ff) hue-rotate(180deg) saturate(300%);
-      animation: glitch-slice-2 0.8s infinite linear alternate-reverse;
-    }
-
-    /* Acid Green / Bass Shift Layer */
-    .glitch-layer-3 {
-      opacity: 0.6;
-      mix-blend-mode: color-dodge;
-      filter: drop-shadow(0 0 15px #00ff66) hue-rotate(90deg) contrast(200%);
-      animation: glitch-slice-3 2.1s infinite linear alternate-reverse;
+      animation: heavy-glitch-jump 7s infinite steps(1);
     }
 
     /* ========================================
-       KEYFRAME ANIMATIONS
+       PINK / RED GLITCH LAYER
        ======================================== */
-    
-    /* Random Violent Jumps & Color Inversions */
+    .glitch-layer-1 {
+      opacity: 0.8;
+      mix-blend-mode: screen;
+
+      filter:
+        drop-shadow(0 0 10px #ff0055)
+        hue-rotate(290deg)
+        saturate(300%);
+
+      animation:
+        glitch-slice-1 4s infinite linear alternate-reverse,
+        strobe-flash 8s infinite;
+    }
+
+    /* ========================================
+       CYAN / BLUE GLITCH LAYER
+       ======================================== */
+    .glitch-layer-2 {
+      opacity: 0.8;
+      mix-blend-mode: screen;
+
+      filter:
+        drop-shadow(0 0 10px #00f0ff)
+        hue-rotate(180deg)
+        saturate(300%);
+
+      animation:
+        glitch-slice-2 3.5s infinite linear alternate-reverse;
+    }
+
+    /* ========================================
+       ACID GREEN GLITCH LAYER
+       ======================================== */
+    .glitch-layer-3 {
+      opacity: 0.6;
+      mix-blend-mode: color-dodge;
+
+      filter:
+        drop-shadow(0 0 15px #00ff66)
+        hue-rotate(90deg)
+        contrast(200%);
+
+      animation:
+        glitch-slice-3 5s infinite linear alternate-reverse;
+    }
+
+    /* ========================================
+       MAIN VIOLENT GLITCH
+       ONLY HAPPENS OCCASIONALLY
+       ======================================== */
     @keyframes heavy-glitch-jump {
-      0%, 88%, 100% { transform: translate(0, 0) scale(1); filter: none; }
-      89% { transform: translate(-8px, 4px) scale(1.02) skewX(3deg); filter: invert(0.9); }
-      90% { transform: translate(12px, -6px) scale(0.98); filter: contrast(300%); }
-      91% { transform: translate(-15px, -3px) skewY(-2deg); filter: hue-rotate(180deg); }
-      92% { transform: translate(5px, 8px) scale(1.01); filter: none; }
-      93% { transform: translate(0, 0); filter: none; }
+
+      0%,
+      94%,
+      100% {
+        transform: translate(0, 0) scale(1);
+        filter: none;
+      }
+
+      95% {
+        transform:
+          translate(-8px, 4px)
+          scale(1.02)
+          skewX(3deg);
+
+        filter: invert(0.9);
+      }
+
+      96% {
+        transform:
+          translate(12px, -6px)
+          scale(0.98);
+
+        filter: contrast(300%);
+      }
+
+      97% {
+        transform:
+          translate(-15px, -3px)
+          skewY(-2deg);
+
+        filter: hue-rotate(180deg);
+      }
+
+      98% {
+        transform:
+          translate(5px, 8px)
+          scale(1.01);
+
+        filter: none;
+      }
+
+      99% {
+        transform: translate(0, 0);
+        filter: none;
+      }
     }
 
-    /* Slice Animation - Layer 1 (Pink) */
+    /* ========================================
+       PINK SLICE ANIMATION
+       ======================================== */
     @keyframes glitch-slice-1 {
-      0% { clip-path: inset(15% 0 70% 0); transform: translate(-12px, 2px); }
-      15% { clip-path: inset(55% 0 10% 0); transform: translate(10px, -4px); }
-      30% { clip-path: inset(80% 0 5% 0); transform: translate(-6px, 6px); }
-      45% { clip-path: inset(35% 0 45% 0); transform: translate(14px, -2px); }
-      60% { clip-path: inset(5% 0 85% 0); transform: translate(-8px, 3px); }
-      75% { clip-path: inset(70% 0 20% 0); transform: translate(12px, -5px); }
-      90% { clip-path: inset(25% 0 50% 0); transform: translate(-4px, 1px); }
-      100% { clip-path: inset(40% 0 40% 0); transform: translate(6px, -3px); }
+
+      0% {
+        clip-path: inset(15% 0 70% 0);
+        transform: translate(-12px, 2px);
+      }
+
+      15% {
+        clip-path: inset(55% 0 10% 0);
+        transform: translate(10px, -4px);
+      }
+
+      30% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(-6px, 6px);
+      }
+
+      45% {
+        clip-path: inset(35% 0 45% 0);
+        transform: translate(14px, -2px);
+      }
+
+      60% {
+        clip-path: inset(5% 0 85% 0);
+        transform: translate(-8px, 3px);
+      }
+
+      75% {
+        clip-path: inset(70% 0 20% 0);
+        transform: translate(12px, -5px);
+      }
+
+      90% {
+        clip-path: inset(25% 0 50% 0);
+        transform: translate(-4px, 1px);
+      }
+
+      100% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(6px, -3px);
+      }
     }
 
-    /* Slice Animation - Layer 2 (Cyan) */
+    /* ========================================
+       CYAN SLICE ANIMATION
+       ======================================== */
     @keyframes glitch-slice-2 {
-      0% { clip-path: inset(80% 0 5% 0); transform: translate(10px, -2px); }
-      20% { clip-path: inset(10% 0 65% 0); transform: translate(-12px, 5px); }
-      40% { clip-path: inset(45% 0 35% 0); transform: translate(8px, -6px); }
-      60% { clip-path: inset(25% 0 60% 0); transform: translate(-10px, 3px); }
-      80% { clip-path: inset(65% 0 15% 0); transform: translate(14px, -1px); }
-      100% { clip-path: inset(5% 0 80% 0); transform: translate(-6px, 4px); }
+
+      0% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(10px, -2px);
+      }
+
+      20% {
+        clip-path: inset(10% 0 65% 0);
+        transform: translate(-12px, 5px);
+      }
+
+      40% {
+        clip-path: inset(45% 0 35% 0);
+        transform: translate(8px, -6px);
+      }
+
+      60% {
+        clip-path: inset(25% 0 60% 0);
+        transform: translate(-10px, 3px);
+      }
+
+      80% {
+        clip-path: inset(65% 0 15% 0);
+        transform: translate(14px, -1px);
+      }
+
+      100% {
+        clip-path: inset(5% 0 80% 0);
+        transform: translate(-6px, 4px);
+      }
     }
 
-    /* Slice Animation - Layer 3 (Acid Green) */
+    /* ========================================
+       GREEN SLICE ANIMATION
+       ======================================== */
     @keyframes glitch-slice-3 {
-      0% { clip-path: inset(30% 0 60% 0); transform: translate(-5px, 10px); }
-      25% { clip-path: inset(75% 0 15% 0); transform: translate(8px, -10px); }
-      50% { clip-path: inset(10% 0 80% 0); transform: translate(-15px, 2px); }
-      75% { clip-path: inset(50% 0 30% 0); transform: translate(5px, 8px); }
-      100% { clip-path: inset(5% 0 90% 0); transform: translate(-8px, -4px); }
+
+      0% {
+        clip-path: inset(30% 0 60% 0);
+        transform: translate(-5px, 10px);
+      }
+
+      25% {
+        clip-path: inset(75% 0 15% 0);
+        transform: translate(8px, -10px);
+      }
+
+      50% {
+        clip-path: inset(10% 0 80% 0);
+        transform: translate(-15px, 2px);
+      }
+
+      75% {
+        clip-path: inset(50% 0 30% 0);
+        transform: translate(5px, 8px);
+      }
+
+      100% {
+        clip-path: inset(5% 0 90% 0);
+        transform: translate(-8px, -4px);
+      }
     }
 
-    /* Intense Strobe Pulse Effect */
+    /* ========================================
+       SLOWER STROBE
+       ======================================== */
     @keyframes strobe-flash {
-      0%, 94%, 96%, 100% { opacity: 0.8; }
-      95% { opacity: 0.1; }
-      97% { opacity: 1; filter: brightness(250%); }
-    }
 
+      0%,
+      94%,
+      96%,
+      100% {
+        opacity: 0.8;
+      }
+
+      95% {
+        opacity: 0.1;
+      }
+
+      97% {
+        opacity: 1;
+        filter: brightness(250%);
+      }
+    }
 
     /* ========================================
        HEADER
@@ -161,11 +351,14 @@
     header {
       width: 100%;
       padding: 1.5rem 2rem;
+
       display: flex;
       justify-content: flex-end;
+
       position: absolute;
       top: 0;
       right: 0;
+
       z-index: 1000;
     }
 
@@ -176,27 +369,39 @@
       display: flex;
       list-style: none;
       gap: 1.5rem;
+
       background: rgba(0, 0, 0, 0.85);
+
       padding: 0.8rem 1.5rem;
+
       border-radius: 4px;
       border: 1px solid var(--green-accent);
-      box-shadow: 0 0 15px rgba(46, 139, 87, 0.4);
+
+      box-shadow:
+        0 0 15px rgba(46, 139, 87, 0.4);
     }
 
     .nav-links a {
       color: var(--white);
+
       text-decoration: none;
+
       font-weight: 600;
       text-transform: uppercase;
       font-size: 0.9rem;
       letter-spacing: 1px;
-      transition: color 0.3s, text-shadow 0.3s;
+
+      transition:
+        color 0.3s,
+        text-shadow 0.3s;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--green-hover);
-      text-shadow: 0 0 8px var(--green-hover);
+
+      text-shadow:
+        0 0 8px var(--green-hover);
     }
 
     /* ========================================
@@ -204,31 +409,48 @@
        ======================================== */
     .countdown {
       position: fixed;
+
       bottom: 25px;
       right: 25px;
+
       z-index: 1000;
+
       background: rgba(0, 0, 0, 0.85);
+
       border: 1px solid var(--green-accent);
       border-radius: 4px;
+
       padding: 15px 20px;
+
       color: var(--white);
       text-align: center;
+
       backdrop-filter: blur(5px);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+
+      box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.9);
     }
 
     .countdown-title {
       font-size: 0.7rem;
+
       letter-spacing: 2px;
+
       color: var(--green-hover);
+
       margin-bottom: 10px;
+
       font-weight: 600;
-      text-shadow: 0 0 5px var(--green-hover);
+
+      text-shadow:
+        0 0 5px var(--green-hover);
     }
 
     .countdown-time {
       display: flex;
+
       justify-content: center;
+
       gap: 15px;
     }
 
@@ -238,23 +460,33 @@
 
     .countdown-time span {
       display: block;
+
       font-size: 1.5rem;
+
       font-weight: 700;
+
       line-height: 1;
     }
 
     .countdown-time small {
       display: block;
+
       font-size: 0.55rem;
+
       color: var(--grey);
+
       margin-top: 5px;
+
       letter-spacing: 1px;
     }
 
     .countdown-date {
       margin-top: 10px;
+
       font-size: 0.65rem;
+
       letter-spacing: 3px;
+
       color: var(--grey);
     }
 
@@ -262,6 +494,54 @@
        MOBILE
        ======================================== */
     @media (max-width: 600px) {
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        min-height: 100dvh;
+      }
+
+      .glitch-wrapper {
+        width: 100%;
+        height: 100dvh;
+      }
+
+      /*
+        IMPORTANT:
+        On phones we use CONTAIN instead of COVER.
+        This prevents the sides of the artwork,
+        including the full AND WOT logo, being cropped.
+      */
+      .glitch-img {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: #000;
+      }
+
+      /* Slightly calmer mobile glitch */
+      .glitch-main {
+        animation: heavy-glitch-jump 8s infinite steps(1);
+      }
+
+      .glitch-layer-1 {
+        animation:
+          glitch-slice-1 5s infinite linear alternate-reverse,
+          strobe-flash 10s infinite;
+      }
+
+      .glitch-layer-2 {
+        animation:
+          glitch-slice-2 4.5s infinite linear alternate-reverse;
+      }
+
+      .glitch-layer-3 {
+        animation:
+          glitch-slice-3 6s infinite linear alternate-reverse;
+      }
+
+      /* Navigation */
       header {
         justify-content: center;
         padding: 1rem;
@@ -276,9 +556,11 @@
         font-size: 0.75rem;
       }
 
+      /* Countdown */
       .countdown {
         bottom: 15px;
         right: 15px;
+
         padding: 12px 15px;
       }
 
@@ -289,56 +571,155 @@
       .countdown-time span {
         font-size: 1.2rem;
       }
+
+      .countdown-title {
+        font-size: 0.6rem;
+      }
+
+      .countdown-date {
+        font-size: 0.55rem;
+      }
+    }
+
+    /* ========================================
+       VERY SMALL PHONES
+       ======================================== */
+    @media (max-width: 380px) {
+
+      .nav-links {
+        gap: 0.5rem;
+        padding: 0.55rem 0.7rem;
+      }
+
+      .nav-links a {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+      }
+
+      .countdown {
+        right: 10px;
+        bottom: 10px;
+
+        padding: 10px 12px;
+      }
+
+      .countdown-time {
+        gap: 5px;
+      }
+
+      .countdown-time div {
+        min-width: 32px;
+      }
+
+      .countdown-time span {
+        font-size: 1rem;
+      }
     }
   </style>
+
 </head>
 
 <body>
 
-  <!-- HEAVY GLITCH RAVE BACKGROUND -->
+  <!-- ========================================
+       HEAVY GLITCH RAVE BACKGROUND
+       ======================================== -->
+
   <div class="glitch-wrapper">
-    <div class="glitch-img glitch-main"></div>
-    <div class="glitch-img glitch-layer-1"></div>
-    <div class="glitch-img glitch-layer-2"></div>
-    <div class="glitch-img glitch-layer-3"></div>
+
+```
+<div class="glitch-img glitch-main"></div>
+
+<div class="glitch-img glitch-layer-1"></div>
+
+<div class="glitch-img glitch-layer-2"></div>
+
+<div class="glitch-img glitch-layer-3"></div>
+```
+
   </div>
 
-  <!-- TOP-RIGHT NAVIGATION -->
+  <!-- ========================================
+       TOP-RIGHT NAVIGATION
+       ======================================== -->
+
   <header>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="rigging.html">Rigging</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
+
+```
+<nav>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="index.html" class="active">Home</a>
+    </li>
+
+    <li>
+      <a href="about.html">About</a>
+    </li>
+
+    <li>
+      <a href="rigging.html">Rigging</a>
+    </li>
+
+    <li>
+      <a href="contact.html">Contact Us</a>
+    </li>
+
+  </ul>
+
+</nav>
+```
+
   </header>
 
-  <!-- EVENT COUNTDOWN -->
+  <!-- ========================================
+       EVENT COUNTDOWN
+       ======================================== -->
+
   <div class="countdown">
-    <div class="countdown-title">NEXT EVENT — ONYX</div>
-    <div class="countdown-time">
-      <div>
-        <span id="days">00</span>
-        <small>DAYS</small>
-      </div>
-      <div>
-        <span id="hours">00</span>
-        <small>HRS</small>
-      </div>
-      <div>
-        <span id="minutes">00</span>
-        <small>MIN</small>
-      </div>
-      <div>
-        <span id="seconds">00</span>
-        <small>SEC</small>
-      </div>
-    </div>
-    <div class="countdown-date">17.10.2026</div>
+
+```
+<div class="countdown-title">
+  NEXT EVENT — ONYX
+</div>
+
+<div class="countdown-time">
+
+  <div>
+    <span id="days">00</span>
+    <small>DAYS</small>
   </div>
 
+  <div>
+    <span id="hours">00</span>
+    <small>HRS</small>
+  </div>
+
+  <div>
+    <span id="minutes">00</span>
+    <small>MIN</small>
+  </div>
+
+  <div>
+    <span id="seconds">00</span>
+    <small>SEC</small>
+  </div>
+
+</div>
+
+<div class="countdown-date">
+  17.10.2026
+</div>
+```
+
+  </div>
+
+  <!-- ========================================
+       COUNTDOWN SCRIPT
+       ======================================== -->
+
   <script src="countdown.js"></script>
+
 </body>
 </html>
