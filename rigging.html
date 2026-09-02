@@ -179,7 +179,7 @@
 
 
     /* ========================================
-       ABOUT SECTION
+       INTRODUCTION
        ======================================== */
 
     .about-section {
@@ -233,7 +233,7 @@
 
 
     /* ========================================
-       EXPERIENCE STATEMENT
+       SYSTEM INFORMATION
        ======================================== */
 
     .experience {
@@ -297,7 +297,7 @@
 
 
     /* ========================================
-       RESIDENTS
+       SYSTEM SECTION
        ======================================== */
 
     .residents-section {
@@ -339,120 +339,32 @@
 
 
     /* ========================================
-       RESIDENT GRID
+       MLX IMAGE
        ======================================== */
 
-    .resident-grid {
+    .system-image {
 
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 20px;
-    }
-
-
-    .resident {
+      width: 100%;
 
       background: rgba(0, 0, 0, 0.96);
 
       border: 1px solid #333;
 
-      min-height: 180px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: flex-end;
-
-      padding: 25px;
-
-      position: relative;
-
-      overflow: hidden;
-
-      transition: all 0.3s ease;
+      padding: 15px;
     }
 
 
-    .resident::before {
+    .system-image img {
 
-      content: "";
-
-      position: absolute;
-
-      top: 0;
-      left: 0;
+      display: block;
 
       width: 100%;
 
-      height: 3px;
+      height: auto;
 
-      background: var(--green-accent);
+      max-height: 650px;
 
-      transform: scaleX(0);
-
-      transform-origin: left;
-
-      transition: transform 0.3s ease;
-    }
-
-
-    .resident:hover {
-
-      border-color: var(--green-accent);
-
-      transform: translateY(-5px);
-    }
-
-
-    .resident:hover::before {
-
-      transform: scaleX(1);
-    }
-
-
-    .resident-number {
-
-      position: absolute;
-
-      top: 18px;
-      right: 20px;
-
-      color: #333;
-
-      font-size: 0.75rem;
-
-      font-weight: 700;
-
-      letter-spacing: 2px;
-    }
-
-
-    .resident h3 {
-
-      font-size: 1.35rem;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
-    .resident .resident-role {
-
-      margin-top: 8px;
-
-      color: var(--green-hover);
-
-      font-size: 0.65rem;
-
-      font-weight: 600;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
+      object-fit: contain;
     }
 
 
@@ -513,7 +425,7 @@
 
 
     /* ========================================
-       MOBILE
+       TABLET
        ======================================== */
 
     @media (max-width: 800px) {
@@ -531,14 +443,12 @@
         margin: 40px 0 70px;
       }
 
-
-      .resident-grid {
-
-        grid-template-columns: 1fr 1fr;
-      }
-
     }
 
+
+    /* ========================================
+       MOBILE
+       ======================================== */
 
     @media (max-width: 600px) {
 
@@ -583,15 +493,15 @@
       }
 
 
-      .resident-grid {
+      .system-image {
 
-        grid-template-columns: 1fr;
+        padding: 8px;
       }
 
 
-      .resident {
+      .system-image img {
 
-        min-height: 150px;
+        max-height: 500px;
       }
 
     }
@@ -652,7 +562,7 @@
   <main>
 
 
-    <!-- ABOUT -->
+    <!-- INTRODUCTION -->
 
     <section class="about-section">
 
@@ -685,7 +595,7 @@
     </section>
 
 
-    <!-- SYSTEM -->
+    <!-- SYSTEM INFORMATION -->
 
     <section class="experience">
 
@@ -751,25 +661,11 @@
       </div>
 
 
-      <div
-        style="
-          width: 100%;
-          background: rgba(0, 0, 0, 0.96);
-          border: 1px solid #333;
-          padding: 15px;
-        "
-      >
+      <div class="system-image">
 
         <img
-          src="images/mlx.jpeg"
+          src="images/mlx.jpg"
           alt="Martin Audio MLX sound system"
-          style="
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 650px;
-            object-fit: contain;
-          "
         >
 
       </div>
