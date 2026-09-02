@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AND WOT | About</title>
+
+  <style>
+    /* ========================================
+       COLOUR PALETTE
+       ======================================== */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --grey: #808080;
+      --dark-grey: #151515;
+      --green-accent: #2e8b57;
+      --green-hover: #3cb371;
+    }
+
+
+    /* ========================================
+       RESET
+       ======================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+
+    /* ========================================
+       BODY
+       ======================================== */
+    body {
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.96),
+          rgba(0, 0, 0, 0.97)
+        ),
+        url('images/homeimg.png') no-repeat center center fixed;
+
+      background-size: cover;
+
+      min-height: 100vh;
+      width: 100vw;
+
+      color: var(--white);
+
+      overflow-x: hidden;
+    }
+
+
+    /* ========================================
+       HEADER
+       ======================================== */
+    header {
+      width: 100%;
+
+      padding: 1.5rem 2rem;
+
+      display: flex;
+      justify-content: flex-end;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      z-index: 1000;
+    }
+
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav-links {
+      display: flex;
+
+      list-style: none;
+
+      gap: 1.5rem;
+
+      background: rgba(0, 0, 0, 0.95);
+
+      padding: 0.8rem 1.5rem;
+
+      border-radius: 4px;
+
+      border: 1px solid var(--green-accent);
+    }
+
+
+    .nav-links a {
+      color: var(--white);
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      text-transform: uppercase;
+
+      font-size: 0.9rem;
+
+      letter-spacing: 1px;
+
+      transition: color 0.3s;
+    }
+
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green-hover);
+    }
+
+
+    /* ========================================
+       MAIN CONTENT
+       ======================================== */
+    main {
+      width: 100%;
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 130px 30px 80px;
+    }
+
+
+    /* ========================================
+       ABOUT SECTION
+       ======================================== */
+    .about-section {
+      max-width: 900px;
+
+      margin: 0 auto 90px;
+
+      text-align: center;
+    }
+
+
+    .section-label {
+      color: var(--green-hover);
+
+      font-size: 0.7rem;
+
+      font-weight: 700;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 20px;
+    }
+
+
+    .about-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .about-section p {
+      color: #cccccc;
+
+      font-size: 1.05rem;
+
+      line-height: 1.9;
+
+      margin-bottom: 20px;
+    }
+
+
+    /* ========================================
+       EXPERIENCE STATEMENT
+       ======================================== */
+    .experience {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+
+      margin: 60px 0 100px;
+    }
+
+
+    .experience-box {
+      background: rgba(0, 0, 0, 0.94);
+
+      border: 1px solid #333;
+
+      padding: 35px 20px;
+
+      text-align: center;
+
+      transition: all 0.3s ease;
+    }
+
+
+    .experience-box:hover {
+      border-color: var(--green-accent);
+
+      transform: translateY(-5px);
+    }
+
+
+    .experience-box .number {
+      display: block;
+
+      font-size: 2.8rem;
+
+      font-weight: 900;
+
+      color: var(--green-hover);
+
+      margin-bottom: 8px;
+    }
+
+
+    .experience-box .label {
+      color: var(--grey);
+
+      font-size: 0.7rem;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       RESIDENTS
+       ======================================== */
+    .residents-section {
+      margin-bottom: 60px;
+    }
+
+
+    .residents-header {
+      text-align: center;
+
+      margin-bottom: 45px;
+    }
+
+
+    .residents-header h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+    }
+
+
+    .residents-header p {
+      color: var(--grey);
+
+      margin-top: 12px;
+
+      font-size: 0.75rem;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       RESIDENT GRID
+       ======================================== */
+    .resident-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .resident {
+      background: rgba(0, 0, 0, 0.96);
+
+      border: 1px solid #333;
+
+      min-height: 180px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+
+      padding: 25px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      transition: all 0.3s ease;
+    }
+
+
+    .resident::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      height: 3px;
+
+      background: var(--green-accent);
+
+      transform: scaleX(0);
+
+      transform-origin: left;
+
+      transition: transform 0.3s ease;
+    }
+
+
+    .resident:hover {
+      border-color: var(--green-accent);
+
+      transform: translateY(-5px);
+    }
+
+
+    .resident:hover::before {
+      transform: scaleX(1);
+    }
+
+
+    .resident-number {
+      position: absolute;
+
+      top: 18px;
+      right: 20px;
+
+      color: #333;
+
+      font-size: 0.75rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+    }
+
+
+    .resident h3 {
+      font-size: 1.35rem;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    .resident .resident-role {
+      margin-top: 8px;
+
+      color: var(--green-hover);
+
+      font-size: 0.65rem;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       BOTTOM STATEMENT
+       ======================================== */
+    .statement {
+      border-top: 1px solid #333;
+
+      border-bottom: 1px solid #333;
+
+      padding: 55px 20px;
+
+      margin-top: 90px;
+
+      text-align: center;
+    }
+
+
+    .statement h2 {
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+
+      line-height: 1.4;
+    }
+
+
+    .statement h2 span {
+      color: var(--green-hover);
+    }
+
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    footer {
+      text-align: center;
+
+      padding: 40px 20px;
+
+      color: var(--grey);
+
+      font-size: 0.65rem;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       MOBILE
+       ======================================== */
+    @media (max-width: 800px) {
+
+      main {
+        padding: 120px 20px 50px;
+      }
+
+
+      .experience {
+        grid-template-columns: 1fr;
+
+        margin: 40px 0 70px;
+      }
+
+
+      .resident-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      header {
+        justify-content: center;
+
+        padding: 1rem;
+      }
+
+
+      .nav-links {
+        gap: 0.8rem;
+
+        padding: 0.6rem 1rem;
+      }
+
+
+      .nav-links a {
+        font-size: 0.7rem;
+      }
+
+
+      main {
+        padding: 115px 15px 40px;
+      }
+
+
+      .about-section p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+      }
+
+
+      .resident-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .resident {
+        min-height: 150px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+
+  <header>
+
+    <nav>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html" class="active">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="rigging.html">
+            Rigging
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            Contact Us
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- ========================================
+       MAIN CONTENT
+       ======================================== -->
+
+  <main>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-section">
+
+      <div class="section-label">
+        Who We Are
+      </div>
+
+      <h2>
+        Built From The Scene.
+      </h2>
+
+      <p>
+        AND WOT is a bassline collective built on over 20 years
+        of experience within the industry.
+      </p>
+
+      <p>
+        Our residents have played internationally, shared stages
+        across the world and helped push the bassline scene to
+        its limits.
+      </p>
+
+      <p>
+        We represent the sound, culture and energy that sits at
+        the heart of bassline — bringing together experienced DJs,
+        selectors and artists under one collective.
+      </p>
+
+    </section>
+
+
+
+    <!-- EXPERIENCE -->
+
+    <section class="experience">
+
+      <div class="experience-box">
+
+        <span class="number">
+          20+
+        </span>
+
+        <span class="label">
+          Years In The Industry
+        </span>
+
+      </div>
+
+
+      <div class="experience-box">
+
+        <span class="number">
+          6
+        </span>
+
+        <span class="label">
+          Residents
+        </span>
+
+      </div>
+
+
+      <div class="experience-box">
+
+        <span class="number">
+          Global
+        </span>
+
+        <span class="label">
+          International Experience
+        </span>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- RESIDENTS -->
+
+    <section class="residents-section">
+
+      <div class="residents-header">
+
+        <div class="section-label">
+          The Collective
+        </div>
+
+        <h2>
+          Our Residents
+        </h2>
+
+        <p>
+          Bassline. Experience. Pressure.
+        </p>
+
+      </div>
+
+
+
+      <div class="resident-grid">
+
+
+        <div class="resident">
+
+          <span class="resident-number">
+            01
+          </span>
+
+          <h3>
+            FRASER G
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <div class="resident">
+
+          <span class="resident-number">
+            02
+          </span>
+
+          <h3>
+            CHARLIE INSIDE
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <div class="resident">
+
+          <span class="resident-number">
+            03
+          </span>
+
+          <h3>
+            JONNY WARD
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <div class="resident">
+
+          <span class="resident-number">
+            04
+          </span>
+
+          <h3>
+            EYEAM RAGGO
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <div class="resident">
+
+          <span class="resident-number">
+            05
+          </span>
+
+          <h3>
+            DJ KATYKATE
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+        <div class="resident">
+
+          <span class="resident-number">
+            06
+          </span>
+
+          <h3>
+            LLOYD ROPER
+          </h3>
+
+          <span class="resident-role">
+            Resident DJ
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- STATEMENT -->
+
+    <section class="statement">
+
+      <h2>
+        Pushing The Sound.
+        <br>
+        <span>Pushing The Scene.</span>
+      </h2>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+
+  <footer>
+
+    AND WOT — Bassline Collective
+
+  </footer>
+
+
+</body>
+</html>
+```

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AND WOT | Rigging</title>
+
+  <style>
+    /* ========================================
+       COLOUR PALETTE
+       ======================================== */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --grey: #808080;
+      --light-grey: #cccccc;
+      --green-accent: #2e8b57;
+      --green-hover: #3cb371;
+    }
+
+
+    /* ========================================
+       RESET
+       ======================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+
+    /* ========================================
+       BODY
+       ======================================== */
+    body {
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.97),
+          rgba(0, 0, 0, 0.98)
+        ),
+        url('images/homeimg.png') no-repeat center center fixed;
+
+      background-size: cover;
+
+      min-height: 100vh;
+      width: 100vw;
+
+      color: var(--white);
+
+      overflow-x: hidden;
+    }
+
+
+    /* ========================================
+       HEADER
+       ======================================== */
+    header {
+      width: 100%;
+
+      padding: 1.5rem 2rem;
+
+      display: flex;
+      justify-content: flex-end;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      z-index: 1000;
+    }
+
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav-links {
+      display: flex;
+
+      list-style: none;
+
+      gap: 1.5rem;
+
+      background: rgba(0, 0, 0, 0.95);
+
+      padding: 0.8rem 1.5rem;
+
+      border-radius: 4px;
+
+      border: 1px solid var(--green-accent);
+    }
+
+
+    .nav-links a {
+      color: var(--white);
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      text-transform: uppercase;
+
+      font-size: 0.9rem;
+
+      letter-spacing: 1px;
+
+      transition: color 0.3s;
+    }
+
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green-hover);
+    }
+
+
+    /* ========================================
+       MAIN
+       ======================================== */
+    main {
+      width: 100%;
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 140px 30px 80px;
+    }
+
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      text-align: center;
+
+      max-width: 950px;
+
+      margin: 0 auto 60px;
+    }
+
+
+    .section-label {
+      color: var(--green-hover);
+
+      font-size: 0.7rem;
+
+      font-weight: 700;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 20px;
+    }
+
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 5px;
+
+      line-height: 1.05;
+
+      margin-bottom: 25px;
+    }
+
+
+    .hero h1 span {
+      color: var(--green-hover);
+    }
+
+
+    .hero p {
+      max-width: 750px;
+
+      margin: 0 auto;
+
+      color: var(--light-grey);
+
+      font-size: 1.1rem;
+
+      line-height: 1.8;
+    }
+
+
+    /* ========================================
+       MLX IMAGE
+       ======================================== */
+    .mlx-image {
+      width: 100%;
+
+      max-width: 1100px;
+
+      height: 500px;
+
+      margin: 0 auto 70px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border: 1px solid #333;
+
+      background: #000;
+    }
+
+
+    .mlx-image img {
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      opacity: 0.8;
+
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+
+    .mlx-image:hover img {
+      transform: scale(1.03);
+
+      opacity: 1;
+    }
+
+
+    .mlx-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.05),
+          rgba(0, 0, 0, 0.75)
+        );
+
+      display: flex;
+
+      align-items: flex-end;
+
+      padding: 35px;
+    }
+
+
+    .mlx-overlay h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 4px;
+
+      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+    }
+
+
+    .mlx-overlay h2 span {
+      color: var(--green-hover);
+    }
+
+
+    /* ========================================
+       SYSTEM INTRO
+       ======================================== */
+    .system {
+      background: rgba(0, 0, 0, 0.94);
+
+      border: 1px solid #333;
+
+      padding: 55px 45px;
+
+      margin-bottom: 60px;
+    }
+
+
+    .system h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .system h2 span {
+      color: var(--green-hover);
+    }
+
+
+    .system p {
+      color: var(--light-grey);
+
+      font-size: 1rem;
+
+      line-height: 1.9;
+
+      max-width: 900px;
+    }
+
+
+    .system p + p {
+      margin-top: 20px;
+    }
+
+
+    /* ========================================
+       FEATURES
+       ======================================== */
+    .features {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+
+      margin-bottom: 80px;
+    }
+
+
+    .feature {
+      background: rgba(0, 0, 0, 0.94);
+
+      border: 1px solid #333;
+
+      padding: 35px 25px;
+
+      transition: all 0.3s ease;
+    }
+
+
+    .feature:hover {
+      border-color: var(--green-accent);
+
+      transform: translateY(-5px);
+    }
+
+
+    .feature-number {
+      color: var(--green-hover);
+
+      font-size: 0.7rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 18px;
+
+      display: block;
+    }
+
+
+    .feature h3 {
+      text-transform: uppercase;
+
+      font-size: 1.1rem;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 12px;
+    }
+
+
+    .feature p {
+      color: var(--grey);
+
+      font-size: 0.85rem;
+
+      line-height: 1.7;
+    }
+
+
+    /* ========================================
+       SOUND PHILOSOPHY
+       ======================================== */
+    .philosophy {
+      text-align: center;
+
+      border-top: 1px solid #333;
+
+      border-bottom: 1px solid #333;
+
+      padding: 70px 30px;
+
+      margin-bottom: 70px;
+    }
+
+
+    .philosophy h2 {
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+
+      line-height: 1.35;
+
+      margin-bottom: 25px;
+    }
+
+
+    .philosophy h2 span {
+      color: var(--green-hover);
+    }
+
+
+    .philosophy p {
+      max-width: 800px;
+
+      margin: 0 auto;
+
+      color: var(--light-grey);
+
+      font-size: 1rem;
+
+      line-height: 1.8;
+    }
+
+
+    /* ========================================
+       HIRE
+       ======================================== */
+    .hire {
+      text-align: center;
+
+      background: rgba(0, 0, 0, 0.95);
+
+      border: 1px solid var(--green-accent);
+
+      padding: 60px 30px;
+    }
+
+
+    .hire h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .hire p {
+      color: var(--grey);
+
+      font-size: 0.9rem;
+
+      line-height: 1.7;
+
+      margin-bottom: 30px;
+    }
+
+
+    .hire-button {
+      display: inline-block;
+
+      padding: 14px 30px;
+
+      border: 1px solid var(--green-accent);
+
+      color: var(--white);
+
+      text-decoration: none;
+
+      text-transform: uppercase;
+
+      font-size: 0.75rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      transition: all 0.3s ease;
+    }
+
+
+    .hire-button:hover {
+      background: var(--green-accent);
+
+      color: var(--white);
+    }
+
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    footer {
+      text-align: center;
+
+      padding: 40px 20px;
+
+      color: var(--grey);
+
+      font-size: 0.65rem;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       MOBILE
+       ======================================== */
+    @media (max-width: 800px) {
+
+      main {
+        padding: 120px 20px 60px;
+      }
+
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+
+      .system {
+        padding: 40px 25px;
+      }
+
+
+      .mlx-image {
+        height: 400px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      header {
+        justify-content: center;
+
+        padding: 1rem;
+      }
+
+
+      .nav-links {
+        gap: 0.8rem;
+
+        padding: 0.6rem 1rem;
+      }
+
+
+      .nav-links a {
+        font-size: 0.7rem;
+      }
+
+
+      main {
+        padding: 115px 15px 40px;
+      }
+
+
+      .hero {
+        margin-bottom: 45px;
+      }
+
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+
+      .mlx-image {
+        height: 300px;
+
+        margin-bottom: 50px;
+      }
+
+
+      .mlx-overlay {
+        padding: 20px;
+      }
+
+
+      .philosophy {
+        padding: 50px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+
+  <header>
+
+    <nav>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="rigging.html" class="active">
+            Rigging
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            Contact Us
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- ========================================
+       MAIN CONTENT
+       ======================================== -->
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="section-label">
+        AND WOT SOUND
+      </div>
+
+      <h1>
+        The <span>Rig</span>
+      </h1>
+
+      <p>
+        Our Martin Audio MLX system is available to lease
+        for events, venues and promoters who demand serious sound.
+      </p>
+
+    </section>
+
+
+
+    <!-- MLX IMAGE -->
+
+    <div class="mlx-image">
+
+      <img
+        src="images/mlx.jpg"
+        alt="AND WOT Martin Audio MLX sound system"
+      >
+
+      <div class="mlx-overlay">
+
+        <h2>
+          Martin Audio <span>MLX</span>
+        </h2>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- SYSTEM -->
+
+    <section class="system">
+
+      <div class="section-label">
+        High Fidelity. High Impact.
+      </div>
+
+      <h2>
+        Sound Is <span>Everything.</span>
+      </h2>
+
+      <p>
+        At AND WOT, we take high fidelity sound extremely seriously.
+        A sound system isn't simply there to make noise — it is a
+        fundamental part of the experience.
+      </p>
+
+      <p>
+        The way a system translates to the punters can make or break
+        their night. That's why we put the quality of the sound first,
+        from the system itself through to the way it is deployed and
+        tuned for the space.
+      </p>
+
+    </section>
+
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+
+      <div class="feature">
+
+        <span class="feature-number">
+          01
+        </span>
+
+        <h3>
+          High Fidelity
+        </h3>
+
+        <p>
+          Detailed and controlled reproduction designed to let the
+          music translate properly to the dancefloor.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <span class="feature-number">
+          02
+        </span>
+
+        <h3>
+          Serious Impact
+        </h3>
+
+        <p>
+          A system suited to bass-driven music where the low end,
+          dynamics and physical impact matter.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <span class="feature-number">
+          03
+        </span>
+
+        <h3>
+          Available To Lease
+        </h3>
+
+        <p>
+          The AND WOT system is available for promoters, venues,
+          events and productions.
+        </p>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- PHILOSOPHY -->
+
+    <section class="philosophy">
+
+      <div class="section-label">
+        Our Philosophy
+      </div>
+
+      <h2>
+        The Sound Makes The
+        <span>Night.</span>
+      </h2>
+
+      <p>
+        We believe the sound system is one of the most important parts
+        of an event. The punter might never see the processing, system
+        design or tuning — but they will feel and hear the result.
+        When the system translates properly, the music comes alive.
+      </p>
+
+    </section>
+
+
+
+    <!-- HIRE -->
+
+    <section class="hire">
+
+      <div class="section-label">
+        Available For Lease
+      </div>
+
+      <h2>
+        Need The Rig?
+      </h2>
+
+      <p>
+        Get in touch with AND WOT to discuss your event,
+        requirements and system availability.
+      </p>
+
+      <a href="contact.html" class="hire-button">
+        Enquire Now
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+
+  <footer>
+
+    AND WOT — Bassline Collective
+
+  </footer>
+
+
+</body>
+</html>
