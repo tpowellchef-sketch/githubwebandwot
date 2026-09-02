@@ -113,6 +113,13 @@
       border-radius: 4px;
 
       border: 1px solid var(--green-accent);
+
+      box-shadow:
+        0 0 8px rgba(46, 139, 87, 0.8),
+        0 0 20px rgba(46, 139, 87, 0.5),
+        0 0 35px rgba(0, 255, 102, 0.25);
+
+      transition: all 0.3s ease;
     }
 
 
@@ -130,7 +137,9 @@
 
       letter-spacing: 1px;
 
-      transition: color 0.3s;
+      transition:
+        color 0.3s,
+        text-shadow 0.3s;
     }
 
 
@@ -138,6 +147,22 @@
     .nav-links a.active {
 
       color: var(--green-hover);
+
+      text-shadow:
+        0 0 5px var(--green-hover),
+        0 0 10px var(--green-hover),
+        0 0 20px rgba(0, 255, 102, 0.8);
+    }
+
+
+    .nav-links:hover {
+
+      border-color: var(--green-hover);
+
+      box-shadow:
+        0 0 10px rgba(0, 255, 102, 0.8),
+        0 0 25px rgba(0, 255, 102, 0.5),
+        0 0 50px rgba(0, 255, 102, 0.25);
     }
 
 
@@ -534,6 +559,11 @@
         gap: 0.8rem;
 
         padding: 0.6rem 1rem;
+
+        box-shadow:
+          0 0 6px rgba(46, 139, 87, 0.8),
+          0 0 15px rgba(46, 139, 87, 0.5),
+          0 0 25px rgba(0, 255, 102, 0.2);
       }
 
 
@@ -582,41 +612,40 @@
 
   <header>
 
+    <nav>
 
-<nav>
+      <ul class="nav-links">
 
-  <ul class="nav-links">
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
 
-    <li>
-      <a href="index.html">
-        Home
-      </a>
-    </li>
+        <li>
+          <a href="about.html" class="active">
+            About
+          </a>
+        </li>
 
-    <li>
-      <a href="about.html" class="active">
-        About
-      </a>
-    </li>
+        <li>
+          <a href="rigging.html">
+            Rigging
+          </a>
+        </li>
 
-    <li>
-      <a href="rigging.html">
-        Rigging
-      </a>
-    </li>
+        <li>
+          <a href="contact.html">
+            Contact Us
+          </a>
+        </li>
 
-    <li>
-      <a href="contact.html">
-        Contact Us
-      </a>
-    </li>
+      </ul>
 
-  </ul>
-
-</nav>
-
+    </nav>
 
   </header>
+
 
   <!-- ========================================
        MAIN CONTENT
@@ -625,269 +654,266 @@
   <main>
 
 
-<!-- ABOUT -->
+    <!-- ABOUT -->
 
-<section class="about-section">
+    <section class="about-section">
 
-  <div class="section-label">
-    Who We Are
-  </div>
+      <div class="section-label">
+        Who We Are
+      </div>
 
-  <h2>
-    Built From The Scene.
-  </h2>
+      <h2>
+        Built From The Scene.
+      </h2>
 
-  <p>
-    AND WOT is a bassline collective built on over 20 years
-    of experience within the industry.
-  </p>
+      <p>
+        AND WOT is a bassline collective built on over 20 years
+        of experience within the industry.
+      </p>
 
-  <p>
-    Our residents have played internationally, shared stages
-    across the world and helped push the bassline scene to
-    its limits.
-  </p>
+      <p>
+        Our residents have played internationally, shared stages
+        across the world and helped push the bassline scene to
+        its limits.
+      </p>
 
-  <p>
-    We represent the sound, culture and energy that sits at
-    the heart of bassline — bringing together experienced DJs,
-    selectors and artists under one collective.
-  </p>
+      <p>
+        We represent the sound, culture and energy that sits at
+        the heart of bassline — bringing together experienced DJs,
+        selectors and artists under one collective.
+      </p>
 
-</section>
+    </section>
 
 
+    <!-- EXPERIENCE -->
 
-<!-- EXPERIENCE -->
+    <section class="experience">
 
-<section class="experience">
+      <div class="experience-box">
 
-  <div class="experience-box">
+        <span class="number">
+          20+
+        </span>
 
-    <span class="number">
-      20+
-    </span>
+        <span class="label">
+          Years In The Industry
+        </span>
 
-    <span class="label">
-      Years In The Industry
-    </span>
+      </div>
 
-  </div>
 
+      <div class="experience-box">
 
-  <div class="experience-box">
+        <span class="number">
+          7
+        </span>
 
-    <span class="number">
-      7
-    </span>
+        <span class="label">
+          Residents
+        </span>
 
-    <span class="label">
-      Residents
-    </span>
+      </div>
 
-  </div>
 
+      <div class="experience-box">
 
-  <div class="experience-box">
+        <span class="number">
+          Global
+        </span>
 
-    <span class="number">
-      Global
-    </span>
+        <span class="label">
+          International Experience
+        </span>
 
-    <span class="label">
-      International Experience
-    </span>
+      </div>
 
-  </div>
+    </section>
 
-</section>
 
+    <!-- RESIDENTS -->
 
+    <section class="residents-section">
 
-<!-- RESIDENTS -->
+      <div class="residents-header">
 
-<section class="residents-section">
+        <div class="section-label">
+          The Collective
+        </div>
 
-  <div class="residents-header">
+        <h2>
+          Our Residents
+        </h2>
 
-    <div class="section-label">
-      The Collective
-    </div>
+        <p>
+          Bassline. Experience. Pressure.
+        </p>
 
-    <h2>
-      Our Residents
-    </h2>
+      </div>
 
-    <p>
-      Bassline. Experience. Pressure.
-    </p>
 
-  </div>
+      <div class="resident-grid">
 
 
+        <!-- RESIDENT 01 -->
 
-  <div class="resident-grid">
+        <div class="resident">
 
+          <span class="resident-number">
+            01
+          </span>
 
-    <!-- RESIDENT 01 -->
+          <h3>
+            FRASER G
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        01
-      </span>
+        </div>
 
-      <h3>
-        FRASER G
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+        <!-- RESIDENT 02 -->
 
-    </div>
+        <div class="resident">
 
+          <span class="resident-number">
+            02
+          </span>
 
-    <!-- RESIDENT 02 -->
+          <h3>
+            CHARLIE INSIDE
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        02
-      </span>
+        </div>
 
-      <h3>
-        CHARLIE INSIDE
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+        <!-- RESIDENT 03 -->
 
-    </div>
+        <div class="resident">
 
+          <span class="resident-number">
+            03
+          </span>
 
-    <!-- RESIDENT 03 -->
+          <h3>
+            JONNY WARD
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        03
-      </span>
+        </div>
 
-      <h3>
-        JONNY WARD
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+        <!-- RESIDENT 04 -->
 
-    </div>
+        <div class="resident">
 
+          <span class="resident-number">
+            04
+          </span>
 
-    <!-- RESIDENT 04 -->
+          <h3>
+            EYEAM RAGGO
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        04
-      </span>
+        </div>
 
-      <h3>
-        EYEAM RAGGO
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+        <!-- RESIDENT 05 -->
 
-    </div>
+        <div class="resident">
 
+          <span class="resident-number">
+            05
+          </span>
 
-    <!-- RESIDENT 05 -->
+          <h3>
+            DJ KATYKATE
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        05
-      </span>
+        </div>
 
-      <h3>
-        DJ KATYKATE
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+        <!-- RESIDENT 06 -->
 
-    </div>
+        <div class="resident">
 
+          <span class="resident-number">
+            06
+          </span>
 
-    <!-- RESIDENT 06 -->
+          <h3>
+            LLOYD ROPER
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        06
-      </span>
+        </div>
 
-      <h3>
-        LLOYD ROPER
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+        <!-- RESIDENT 07 -->
 
-    </div>
+        <div class="resident">
 
+          <span class="resident-number">
+            07
+          </span>
 
-    <!-- RESIDENT 07 -->
+          <h3>
+            MIKEY DUBZ
+          </h3>
 
-    <div class="resident">
+          <span class="resident-role">
+            Resident DJ
+          </span>
 
-      <span class="resident-number">
-        07
-      </span>
+        </div>
 
-      <h3>
-        MIKEY DUBZ
-      </h3>
 
-      <span class="resident-role">
-        Resident DJ
-      </span>
+      </div>
 
-    </div>
+    </section>
 
 
-  </div>
+    <!-- STATEMENT -->
 
-</section>
+    <section class="statement">
 
+      <h2>
 
+        Pushing The Sound.
 
-<!-- STATEMENT -->
+        <br>
 
-<section class="statement">
+        <span>
+          Pushing The Scene.
+        </span>
 
-  <h2>
+      </h2>
 
-    Pushing The Sound.
-
-    <br>
-
-    <span>
-      Pushing The Scene.
-    </span>
-
-  </h2>
-
-</section>
+    </section>
 
 
   </main>
+
 
   <!-- ========================================
        FOOTER
@@ -895,11 +921,10 @@
 
   <footer>
 
-
-AND WOT — Bassline Collective
-
+    AND WOT — Bassline Collective
 
   </footer>
+
 
 </body>
 
